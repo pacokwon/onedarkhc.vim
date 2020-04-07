@@ -12,20 +12,20 @@ endif
 
 set t_Co=256
 
-let g:colors_name="onedark_paco"
+let g:colors_name="onedarkpaco"
 
 " Set to "256" for 256-color terminals, or
 " set to "16" to use your terminal emulator's native colors
 " (a 16-color palette for this color scheme is available; see
 " < https://github.com/joshdick/onedark.vim/blob/master/README.md >
 " for more information.)
-if !exists("g:onedark_paco_termcolors")
-  let g:onedark_paco_termcolors = 256
+if !exists("g:onedarkpaco_termcolors")
+  let g:onedarkpaco_termcolors = 256
 endif
 
 " Not all terminals support italics properly. If yours does, opt-in.
-if !exists("g:onedark_paco_terminal_italics")
-  let g:onedark_paco_terminal_italics = 0
+if !exists("g:onedarkpaco_terminal_italics")
+  let g:onedarkpaco_terminal_italics = 0
 endif
 
 " This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
@@ -48,7 +48,7 @@ function! s:h(group, style, ...)
     let s:group_colors[a:group] = s:highlight " Cache default highlight group settings
   endif
 
-  if g:onedark_paco_terminal_italics == 0
+  if g:onedarkpaco_terminal_italics == 0
     if has_key(s:highlight, "cterm") && s:highlight["cterm"] == "italic"
       unlet s:highlight.cterm
     endif
@@ -57,7 +57,7 @@ function! s:h(group, style, ...)
     endif
   endif
 
-  if g:onedark_paco_termcolors == 16
+  if g:onedarkpaco_termcolors == 16
     let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm16 : "NONE")
     let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm16 : "NONE")
   else
@@ -77,11 +77,11 @@ endfunction
 
 " public {{{
 
-function! onedark_paco#set_highlight(group, style)
+function! onedarkpaco#set_highlight(group, style)
   call s:h(a:group, a:style)
 endfunction
 
-function! onedark_paco#extend_highlight(group, style)
+function! onedarkpaco#extend_highlight(group, style)
   call s:h(a:group, a:style, 1)
 endfunction
 
@@ -91,7 +91,7 @@ endfunction
 
 " Color Variables {{{
 
-let s:colors = onedark_paco#GetColors()
+let s:colors = onedarkpaco#GetColors()
 
 let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
@@ -182,7 +182,7 @@ call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
 call s:h("DiffChange", { "fg": s:yellow, "gui": "underline", "cterm": "underline" }) " diff mode: Changed line
 call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed text within a changed line
-if get(g:, 'onedark_paco_hide_endofbuffer', 0)
+if get(g:, 'onedarkpaco_hide_endofbuffer', 0)
     " If enabled, will style end-of-buffer filler lines (~) to appear to be hidden.
     call s:h("EndOfBuffer", { "fg": s:black }) " filler lines (~) after the last line in the buffer
 endif
