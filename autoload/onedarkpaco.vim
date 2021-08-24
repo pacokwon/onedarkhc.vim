@@ -1,4 +1,4 @@
-let s:overrides = get(g:, "onedarkpaco_color_overrides", {})
+let s:overrides = get(g:, "onedarkhc_color_overrides", {})
 
 let s:colors = {
       \ "red": get(s:overrides, "red", { "gui": "#ff6e7a", "cterm": "204", "cterm16": "1" }),
@@ -21,6 +21,6 @@ let s:colors = {
       \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }),
       \}
 
-function! onedarkpaco#GetColors()
+function! onedarkhc#GetColors()
   return s:colors
 endfunction
