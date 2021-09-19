@@ -519,6 +519,8 @@ call s:h("NeomakeInfoSign", { "fg": s:blue })
 call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
 
+call s:h("TelescopeSelection", { "fg": s:green })
+
 " }}}
 
 " Git Highlighting {{{
